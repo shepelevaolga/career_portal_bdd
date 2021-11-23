@@ -25,3 +25,12 @@
 *.pidb
 *.svclog
 *.scc
+
+# Visual Studio profiler
+*.psess
+*.vsp
+*.vspx
+*.sap
+
+# Visual Studio Trace Files
+*.e2e
