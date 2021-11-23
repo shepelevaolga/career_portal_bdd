@@ -1,36 +1,29 @@
-# Files built by Visual Studio
-*_i.c
-*_p.c
-*_i.h
-*.ilk
-*.meta
-*.obj
-*.iobj
-*.pch
-*.pdb
-*.ipdb
-*.pgc
-*.pgd
-*.rsp
-*.sbr
-*.tlb
-*.tli
-*.tlh
-*.tmp
-*.tmp_proj
-*.log
-*.vspscc
-*.vssscc
-.builds
-*.pidb
-*.svclog
-*.scc
+/.env
+venv/
+server/Scripts/initial_data.sql.tar
+__pycache__/
+bin/
+obj/
+node_modules/
+Staffing.Automation.sln.DotSettings.user
+automation/Staffing.Tests.Scenarios/*.cs
 
-# Visual Studio profiler
-*.psess
-*.vsp
-*.vspx
-*.sap
+# User-specific files
+.suo
+.user
+.userosscache
+.sln.docstates
+.sqlite
 
-# Visual Studio Trace Files
-*.e2e
+
+#Tests
+*.feature.cs
+/.config/dotnet-tools.json
+/specsync.json
+.idea
+.bin
+.obj
+.vs
+.vscode
+.testlog
+.manifest
