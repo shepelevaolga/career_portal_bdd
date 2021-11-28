@@ -1,4 +1,4 @@
-Feature: 2.1. Send CV.feature
+Feature: 2.1 Send CV.feature
 
 Background:
 Given user opened the page with the form to send CV
