@@ -1,5 +1,5 @@
 Background:
-Given I open the https://career.quantori.com/ portal in Safari
+Given I open the https://career.quantori.com/ portal 
 and see "Send us your CV" section
 
 Scenario Outline: 2.0 Negative CV empty fields Tests
@@ -35,10 +35,14 @@ Scenario Outline: 2.0.1 Negative CV invalid values Tests
 Scenario Outline: 2.1 Positive CV Tests
     When I fill "<Name>", "<Email>", "<Attach CV>", "<I agree>", "<Message>" fields with foolowing combination of values:
         | Name                         | Email        | Attach CV   | I agree...| Message     |
-        |2 word latin letters <70 symb | valid domain | .doc <10Mb  | not empty | 499 symbols |
-        |2 word latin letters <70 symb | valid domain | .rtf =10Mb  | not empty | empty       |
-        |2 word latin letters <70 symb | valid domain | .docx <10Mb | not empty | 500 symbols |
-        |2 word latin letters <70 symb | valid domain | .pdf <10Mb  | not empty | 1 symbol    |
-
+        |2 word latin letters  70 symb | valid domain | .doc <10Mb  | not empty | 499 symbols |
+        |2 word latin letters  70 symb | valid domain | .rtf =10Mb  | not empty | 250 symbols |
+        |2 word latin letters  69 symb | valid domain | .docx <10Mb | not empty | 500 symbols |
+        |2 word latin letters  69 symb | valid domain | .pdf <10Mb  | not empty | 1 symbol    |
+        |2 word latin letters  30 symb | valid domain | .doc <10Mb  | not empty | 250 symbols |
+        |2 word latin letters  30 symb | valid domain | .rtf <10Mb  | not empty | 1 symbol    |
+        |2 word latin letters   2 symb | valid domain | .docx <10Mb | not empty | empty       |
+        |2 word latin letters   2 symb | valid domain | .pdf <10Mb  | not empty | empty       |
+        
     And click the Send button 
     Then I should see the message that CV was submitted

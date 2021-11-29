@@ -1,5 +1,5 @@
 Background:
-Given I open the https://career.quantori.com/ portal in Google Chrome
+Given I open the https://career.quantori.com/ portal
 
 Scenario 1.0: Cookie Test
 When I click on "Accept and Continue" button in pop-up cookie window 
