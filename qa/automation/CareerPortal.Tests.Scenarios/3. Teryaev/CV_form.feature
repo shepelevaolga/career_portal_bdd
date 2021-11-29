@@ -9,13 +9,13 @@ When User clicks "Send" for empty form
 Then All required fields should be highlighted in red
 And Messages "This field is required" should appear under fields "Name", "Email"
 And Button "Attach CV" should be highlighted in red
-And Checkbox's description "I agree to the personal data processing" should be highlighted in red
+And Check-box's description "I agree to the personal data processing" should be highlighted in red
 
 Scenario: 1.0_02 User can send CV form
 Given User inputted valid name "Vlad Teryaev" in field "Name"
 And User inputted valid email "email@domailn.com" in field "Email"
 And User attached CV file with valid format and size "PDF/DOC/DOCX/RTF/Max 10 Mb"
-And User clicked on checkbox "I agree to the personal data processing"
+And User clicked on check-box "I agree to the personal data processing"
 When User pushes "Send"
 Then Message "Thanks for being awesome! We have received your message and will come back to you as soon as we process it" should appear
 
@@ -76,12 +76,12 @@ When User inputs "C q" in "Name" field
 Then Field "Name" should be highlighted in green
 And Error message does not appear
 
-Scenario: 1.0_12 User inputs only firsname in field "Name"
+Scenario: 1.0_12 User inputs only first name in field "Name"
 When User inputs "Vlad" in field "Name" without whitespace
 Then Message "Invalid name format" should appear under field "Name"
 And Field "Name" should be highlighted in red
 
-Scenario: 1.0_13 User inputs invalid lendth data ( 505 symbols) in the field "Message
+Scenario: 1.0_13 User inputs invalid length data ( 505 symbols) in the field "Message
 When User inputs "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Duis aute irure dolor in reprehenderit in voluptate velit e" in the field "Message"
 Then Message "The maximum number of characters is 500" should appear under field "Message"
 And Field "Message" should be highlighted in red
@@ -119,11 +119,11 @@ And User pushes "Send"
 Then output <output> should be <passed_failed>
 Examples:
 | CV       | output |
-| PDF 1 kb | passed |
-| PDF 4 mb | passed | 
-| PDF 9 mb | passed |
-| PDF 10 mb| passed |
-| PDF 11 mb| failed |
+| PDF 1 Kb | passed |
+| PDF 4 Mb | passed | 
+| PDF 9 Mb | passed |
+| PDF 10 Mb| passed |
+| PDF 11 Mb| failed |
 | DOC      | passed |
 | DOCX     | passed |
 | RTF      | passed |
