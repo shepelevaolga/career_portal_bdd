@@ -15,7 +15,6 @@
   When I enter 71 characters with space delimiter in the field "Name"
   Then a message appears "The maximum number of characters is 70"
 
-
   Scenario: entering the number format data in the field "Name"
   Given form "Send CV" with blank fields
   When I enter the number format data in the field "Name"
@@ -37,4 +36,4 @@
   Scenario: don't tiked "I agree to the personal data processing"
   Given form "Send CV" with blank fields
   When I don't tiked "I agree to the personal data processing"
-  Then "I agree to the personal data processing" changes color to red 
+  Then "I agree to the personal data processing" changes color to red
