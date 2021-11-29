@@ -37,3 +37,4 @@
   Given form "Send CV" with blank fields
   When I don't tiked "I agree to the personal data processing"
   Then "I agree to the personal data processing" changes color to red
+
