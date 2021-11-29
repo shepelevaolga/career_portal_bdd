@@ -9,7 +9,7 @@
   And I click button "Send"
   Then my CV has been send
 
-  
+
   Scenario: exceeding the limit of characters in the field "Name"
   Given form "Send CV" with blank fields
   When I enter 71 characters with space delimiter in the field "Name"
