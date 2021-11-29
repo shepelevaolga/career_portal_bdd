@@ -42,3 +42,21 @@ Then I should see the list of all open postions
 Scenario 1.6.2: Quantori Menu "Contact" button
 When I click on the Contact button in the Menu
 Then I should see the Contuct Us page with offer to upload CV
+
+Scenario Outline 1.7: Footer links icons
+	When I click on "<icon>" icon in the footer area
+	
+		|  link                                     | icon      | Page       |
+		| https://www.quantori.com/                 | www       | Main page  |
+		| career@quantori.com                       | mail      | email      |
+		| https://hh.ru/employer/3343960            | hh        | Hh         |
+		| https://www.facebook.com/quantoricom/     | fb        | Facebook   |
+		| https://instagram.com/quantori_community  | inst      | Instagram  |
+		| https://vk.com/quantori                   | vk        | Vkontakte  |
+		| https://www.linkedin.com/company/quantori | in        | Linkedin   |
+	Then I should be directed at corresponding <link> in a new tab
+
+		
+	
+
+
