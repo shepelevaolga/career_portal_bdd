@@ -5,13 +5,13 @@ Feature: Send CV
 
     @Positive
     Scenario Outline: Successful CV submissions
-        Given I fill the Name field with <Name>
-        And I fill the Email field with <Email>
-        And I fill the Message field with some <Data>
-        And I attach <CV_file> less than 10 Mb
-        And I mark checkbox
+        Given I have filled the Name field with <Name>
+        And I have filled the Email field with <Email>
+        And I have filled the Message field with some <Data>
+        And I have attached <CV_file> less than 10 Mb
+        And I have marked checkbox
         When I click the Send button
-        Then I see the message about the successful CV submission
+        Then I should see the message about the successful CV submission
         And The input fields are empty
         Examples:
             | Name                                                                   | Email                                                                  | CV_file           | Data                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
@@ -27,9 +27,9 @@ Feature: Send CV
 
     @Negative
     Scenario Outline: Check the Name field
-        Given I fill the Name field with <Name>
+        Given I have filled the Name field with <Name>
         When I click the Send button
-        Then I see the result <Result>
+        Then I should see the result <Result>
         Examples:
             | Name                                                                    | Result                                 |
             |                                                                         | This field is required                 |
@@ -47,9 +47,9 @@ Feature: Send CV
 
     @Negative
     Scenario Outline: Check the Email field
-        Given I fill the Email field with <Email>
+        Given I have filled the Email field with <Email>
         When I click the Send button
-        Then I see the result <Result>
+        Then I should see the result <Result>
         Examples:
             | Email                                                                   | Result                                 |
             |                                                                         | This field is required                 |
@@ -63,9 +63,9 @@ Feature: Send CV
 
     @Negative
     Scenario Outline: Check the Message field
-        Given I fill the Message field with <Data>
+        Given I have filled the Message field with <Data>
         When I click the Send button
-        Then I see the result "The maximum number of characters is 500"
+        Then I should see the result "The maximum number of characters is 500"
         Examples:
             | Data                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
             | The Isle of Man's potential to play a "key" role in renewable electricity generation was recognised at the latest British-Irish Council summit, the deputy chief minister has said. Climate change was among the issues discussed as Jane Poole-Wilson attended the conference in Cardiff last week. She said delegates agreed the island's central location meant it could help others "maximise" renewable output. Other issues discussed included healthcare access and youth justice. Ministers had recognised th |
@@ -75,7 +75,7 @@ Feature: Send CV
     @Negative
     Scenario Outline: Attach CV files more than 10 Mb
         When I attach <CV_file> more than 10 Mb
-        Then I see the result <Result>
+        Then I should see the result <Result>
         Examples:
             | CV_file | Result               |
             | cv.pdf  | Something went wrong |
@@ -86,19 +86,19 @@ Feature: Send CV
 
     @Negative
     Scenario: Do not attach CV file
-        Given I fill the Name field with "Olga Soboleva"
-        And I fill the Email field with "olga.soboleva@quantori.com"
-        And I do not attach CV file
-        And I mark checkbox
+        Given I have filled the Name field with "Olga Soboleva"
+        And I have filled the Email field with "olga.soboleva@quantori.com"
+        And I have marked checkbox
+        But I have not attached CV file
         When I click the Send button
-        Then I see Attach CV in red
+        Then I should see Attach CV in red
 
 
     @Negative
     Scenario: Do not mark checkbox
-        Given I fill the Name field with "Olga Soboleva"
-        And I fill the Email field with "olga.soboleva@quantori.com"
-        And I attach "cv_ossoboleva.pdf" less than 10 Mb
-        And I do not mark checkbox
+        Given I have filled the Name field with "Olga Soboleva"
+        And I have filled the Email field with "olga.soboleva@quantori.com"
+        And I have attached "cv_ossoboleva.pdf" less than 10 Mb
+        But I have not marked checkbox
         When I click the Send button
-        Then I see checkbox label in red
+        Then I should see checkbox label in red
