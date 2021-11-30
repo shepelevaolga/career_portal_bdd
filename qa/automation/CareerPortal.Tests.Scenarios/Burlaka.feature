@@ -55,28 +55,28 @@ Given user opened "career.quantori.com"
 And user scrolled to the bottom of the "career.quantori.com" page
 And user clicked a link with "Cookies Settings" text in the footer
 When a pop-up window with selected by default "Necessary cookies" checkbox and "Other cookies" checkbox is displayed
-Then user clicks "Submit preferences" button
+Then user should click "Submit preferences" button
 
 Scenario:1.2.3_06 Footer link "Cookies Settings" allows a user to choose and submit other cookies preferences
 Given user opened "career.quantori.com"  
 And user scrolled to the bottom of the "career.quantori.com" page
 And user clicked a link with "Cookies Settings" text in the footer
 When a pop-up window with selected by default "Necessary cookies" checkbox and "Other cookies" checkbox is displayed
-Then user selects "Other cookies" checkbox 
-And user clicks "Submit preferences" button
+Then user should select "Other cookies" checkbox 
+And user should click "Submit preferences" button
 
 Scenario:1.2.3_07 Pop-up window "Cookies Settings" contains a link to "Data Privacy policy" pdf file
 Given user opened "career.quantori.com"  
 And user scrolled to the bottom of the "career.quantori.com" page
 And user clicked a link with "Cookies Settings" text in the footer
 When a pop-up window with cookies settings is displayed
-Then a link with "Data Privacy policy" text should be shown
+Then a link with "Data Privacy policy" text should be displayed
 
 Scenario Outline:1.2.3_08 Footer link buttons redirect a user to the corresponding websites
 Given user opened "career.quantori.com" 
 And user scrolled to the bottom of the page
 When user clicks a link button with a "<logo>" logo in the footer
-Then user is redirected to "Quantori page" on the "<full website name>" website
+Then user should be redirected to "Quantori page" on the "<full website name>" website
 
 Examples:
 |logo                   |full website name     | 
@@ -93,14 +93,14 @@ And user opened "career.quantori.com"
 And user scrolled to the bottom of the page
 When user clicks a link button with a "vk" logo in the footer
 Then user is not redirected to "Quantori page" on the "vk.com" website
-And message "There is no connection with the site" is displayed 
+And message "There is no connection with the site" should be displayed 
 
 Scenario:1.2.3_10 Footer scroll-to-top button brings a user back to the top of the "career.quantori.com" page
 Given user opened "career.quantori.com"
 And user scrolled to the bottom of the page
 When user clicks a scroll-to-top button with a "QUANTORI" logo 
 Then user returns to the top of the "career.quantori.com" page
-And text "Become a part of Quantori team" is displayed
+And text "Become a part of Quantori team" should be displayed
 
 Scenario:1.2.3_11 Footer mailto button opens a new email window for a user, who signed in to his default email client account
 Given user signed in to his default email-client
@@ -108,7 +108,7 @@ And user opened "career.quantori.com"
 And user scrolled to the bottom of the page
 When user clicks a mailto button with an "Envelope" logo 
 Then a pop-up email window with fields "to", "cc", "subject" and "message body" is displayed
-And "career@quantori.com" address appears in the "to" field automatically
+And "career@quantori.com" address should appear in the "to" field automatically
 
 Scenario:1.2.3_12 Footer mailto button opens a new email window for a non-signed-in user
 Given user did not sign in to his default email client 
