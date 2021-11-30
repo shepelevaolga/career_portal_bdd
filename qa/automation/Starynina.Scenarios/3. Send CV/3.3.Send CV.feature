@@ -106,30 +106,30 @@ Scenario Outline: 3.3_13 User can send the CV form
 
 
 Scenario Outline: 3.3_14 User can't leave required fields in the CV form empty
-	When user enters <valid_invalid> data in the required fields <name>, <email>, <Attach CV>
+    When user enters <valid_invalid> data in the required fields <name>, <email>, <Attach CV>
 	And user leaves the checkbox <checkbox> "I agree to the personal data processing" <empty_not empty>
 	And user clicks the "Send" button
 	Then the <result> is <accepted_error>
 
-	Examples:
-	| name      | email     | Attach CV  | checkbox  | result   |
-	| invalid   | invalid   | invalid    | empty     | error    |
-	| invalid   | invalid   | invalid    | not empty | error    |
-	| invalid   | invalid   | valid      | empty     | error    |
-	| invalid   | invalid   | valid      | not empty | error    |
-	| invalid   | valid     | invalid    | empty     | error    |
-	| invalid   | valid     | invalid    | not empty | error    |
-	| invalid   | valid     | valid      | empty     | error    |
-	| invalid   | valid     | valid      | not empty | error    |
-	| valid     | invalid   | invalid    | empty     | error    |
-	| valid     | invalid   | invalid    | not empty | error    |
-	| valid     | invalid   | valid      | empty     | error    |
-	| valid     | invalid   | valid      | not empty | error    |
-	| valid     | valid     | invalid    | empty     | error    |
-	| valid     | valid     | invalid    | not empty | error    |
-	| valid     | valid     | valid      | empty     | error    |
-	| valid     | valid     | valid      | not empty | accepted |
+		Examples:
+		| name      | email     | Attach CV  | checkbox  | result   |
+		| invalid   | invalid   | invalid    | empty     | error    |
+		| invalid   | invalid   | invalid    | not empty | error    |
+		| invalid   | invalid   | valid      | empty     | error    |
+		| invalid   | invalid   | valid      | not empty | error    |
+		| invalid   | valid     | invalid    | empty     | error    |
+		| invalid   | valid     | invalid    | not empty | error    |
+		| invalid   | valid     | valid      | empty     | error    |
+		| invalid   | valid     | valid      | not empty | error    |
+		| valid     | invalid   | invalid    | empty     | error    |
+		| valid     | invalid   | invalid    | not empty | error    |
+		| valid     | invalid   | valid      | empty     | error    |
+		| valid     | invalid   | valid      | not empty | error    |
+		| valid     | valid     | invalid    | empty     | error    |
+		| valid     | valid     | invalid    | not empty | error    |
+		| valid     | valid     | valid      | empty     | error    |
+		| valid     | valid     | valid      | not empty | accepted |
 
-	And empty required fields are highlighted in red
+    And empty required fields are highlighted in red
 	And filled fields with invalid data are highlighted in red
-	And filled fields with valid data are highlighted in green
+    And filled fields with valid data are highlighted in green
