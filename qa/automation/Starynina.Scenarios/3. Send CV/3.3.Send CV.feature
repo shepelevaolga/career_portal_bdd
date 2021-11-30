@@ -26,15 +26,15 @@ Scenario Outline: 3.3_05 User enters various types of name in the CV form
 	Then the result <result> is appeared
 
 	Examples:
-	| name         | result                   |
-	|              | "This field is required" |
-	| n            | "Invalid name format"    |
-	| nina         | "Invalid name format"    |
-	| nina 1988    | "Invalid name format"    |
-	| /*-+?:%; 909 | "Invalid name format"    |
-	| n s          | accepted                 | 
-	| nina star    | accepted                 | 
-	| нина стар    | accepted                 | 
+	| name                    | result                   |
+	|                         | "This field is required" |
+	| n                       | "Invalid name format"    |
+	| nina                    | "Invalid name format"    |
+	| nina 1988               | "Invalid name format"    |
+	| /*-+?:%; 909            | "Invalid name format"    |
+	| n s                     | accepted                 | 
+	| nina star               | accepted                 | 
+	| (two words in Cyrillic) | accepted                 | 
 
 Scenario: 3.3_06 User enters name with more than maximum characters in the CV form 
 	When user enters name of 71 characters or more in the "Name" field
@@ -46,14 +46,14 @@ Scenario Outline: 3.3_07 User enters various types of email in the CV form
 	Then the result <result> is appeared
 
 	Examples:
-	| email          | result                   |
-	|                | "This field is required" |
-	| nina.gmail.com | "Invalid name format"    |
-	| 123            | "Invalid name format"    |
-	| nina@mail@.com | "Invalid name format"    |
-	| star@gmail.com | accepted                 | 
-	| star@mail.ru   | accepted                 | 
-	| нина@gmail.com | accepted                 | 
+	| email                      | result                   |
+	|                            | "This field is required" |
+	| nina.gmail.com             | "Invalid name format"    |
+	| 123                        | "Invalid name format"    |
+	| nina@mail@.com             | "Invalid name format"    |
+	| star@gmail.com             | accepted                 | 
+	| star@mail.ru               | accepted                 | 
+	| "wordInCyrillic"@gmail.com | accepted                 | 
 
 Scenario: 3.3_08 User enters email with more than maximum characters in the CV form 
 	When user enters name of 71 characters or more in the "Email" field
@@ -99,11 +99,10 @@ Scenario Outline: 3.3_13 User can send the CV form
 	Then the CV form is sent successfully and the message "Thanks for being awesome! We have received your message and will come back to you as soon as we process it." is appeared
 
 	Examples:
-	| valid name | valid email    | valid format | valid size |
-	| n s        | star@gmail.com | PDF          | 0.01 Mb    |
-	| nina star  | star@mail.ru   | DOC          | 5 Mb       |
-	| нина стар  | нина@gmail.com | RTF          | 9.99 Mb    |
-
+	| valid name              | valid email                | valid format | valid size |
+	| n s                     | star@gmail.com             | PDF          | 0.01 Mb    |
+	| nina star               | star@mail.ru               | DOC          | 5 Mb       |
+	| (two words in Cyrillic) | "wordInCyrillic"@gmail.com | RTF          | 9.99 Mb    |
 
 Scenario Outline: 3.3_14 User can't leave required fields in the CV form empty
 	When user enters <valid_invalid> data in the required fields <name>, <email>, <Attach CV>
