@@ -5,8 +5,8 @@
   When user enters valid data in the field "Name"
   And user enters valid data in the field "Email"
   And user attaches CV
-  And user ticked "I agree to the personal data processing"
-  And user click button "Send"
+  And user marks "I agree to the personal data processing"
+  And user clicks the "Send" button
   Then my CV has been send and success message should appear
 
 
@@ -35,6 +35,6 @@
   
   Scenario: 1.1_06 don't ticked "I agree to the personal data processing"
   Given user opened the form "Send CV"
-  When user didn't ticked "I agree to the personal data processing"
-  Then "I agree to the personal data processing" changes color to "red"
+  When user does not mark "I agree to the personal data processing"
+  Then "I agree to the personal data processing" should change color to "red"
 
