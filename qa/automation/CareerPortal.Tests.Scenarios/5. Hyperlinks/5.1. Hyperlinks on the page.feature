@@ -46,6 +46,6 @@ Scenario: 5.1_10 Open document "Quantori Privacy Policy"
 	When user clicked the "Data Privacy Policy" hyperlink
 	Then document "Quantori Privacy Policy" is opened
 	
-Scenario: 5.1_11 Alert window about cuckies
+Scenario: 5.1_11 Alert window about cookies
 	When user clicked the "Cookies Settings" hyperlink
-	Then Alert window about cuckies is opened
+	Then Alert window about cookies is opened
