@@ -18,9 +18,9 @@ Background:
     |Senior Data Engineer                                  ||                 ||            |
 
 Scenario: 1.1_01 Clicking on the search button opens the default page with positions
-	Given https://career.quantori.com website is opened
-	When User pushes "search" button
-	Then User should be redirected to the new page "https://career.quantori.com/ru/positions"
+    Given https://career.quantori.com website is opened
+    When User pushes "search" button
+    Then User should be redirected to the new page "https://career.quantori.com/ru/positions"
     And User should see default page with positions  
 
 Scenario: 1.1_02 Checking the function of the search button
@@ -89,66 +89,66 @@ Scenario: 1.1_09 Checking the form "Open job positions" with filters
     And  User should see default page "Quantori open job positions" without filters
 
 Scenario: 1.1_10 Saving the cache when the page is refreshed on main Quantori page
-     Given https://career.quantori.com website is opened 
-     When User opened competence list box filter 
-     And User Chooses Databases competence 
-     And User opened technologies list box filter 
-     And User Chooses SQL technology
-     And User refreshes page
-     Then User should see default page with filters
+    Given https://career.quantori.com website is opened 
+    When User opened competence list box filter 
+    And User Chooses Databases competence 
+    And User opened technologies list box filter 
+    And User Chooses SQL technology
+    And User refreshes page
+    Then User should see default page with filters
 
 Scenario: 1.1_11 Saving the cache when the page is refreshed on "Quantori open job positions" page
-     Given https://career.quantori.com website is opened 
-     When User opened competence list box filter 
-     And User Chooses Databases competence 
-     And User opened technologies list box filter 
-     And User Chooses SQL technology
-     And User refreshes page
-     Then User should see https://career.quantori.com/ru/positions?competences=Databases&technologies=SQL page with filters
+    Given  https://career.quantori.com website is opened 
+    When User opened competence list box filter 
+    And User Chooses Databases competence 
+    And User opened technologies list box filter 
+    And User Chooses SQL technology
+    And User refreshes page
+    Then User should see https://career.quantori.com/ru/positions?competences=Databases&technologies=SQL page with filters
 
 Scenario: 1.1_12  Checking the checkboxes when selecting a competency
-     Given https://career.quantori.com website is opened 
-     When User opened competence list box filter 
-     And User Chooses Databases competence 
-     Then User should see activated checkbox
+    Given https://career.quantori.com website is opened 
+    When User opened competence list box filter 
+    And User Chooses Databases competence
+    Then User should see activated checkbox
 
 Scenario: 1.1_13  Checking the checkboxes when selecting a technology
-     Given https://career.quantori.com website is opened 
-     When User opened technology list box filter 
-     And User Chooses SQL technology 
-     Then User should see activated checkbox
+    Given https://career.quantori.com website is opened 
+    When User opened technology list box filter 
+    And User Chooses SQL technology
+    Then User should see activated checkbox
 
 Scenario: 1.1_14  Checking the competency counter change when selecting the checkbox in the filter
-     Given https://career.quantori.com website is opened 
-     When User opened competence list box filter 
-     And User Chooses Databases competence
-     Then User should see the competence counter change from empty to 1
+    Given https://career.quantori.com website is opened 
+    When User opened competence list box filter 
+    And User Chooses Databases competence
+    Then User should see the competence counter change from empty to 1
 
 Scenario: 1.1_15  Checking the technology counter change when selecting the checkbox in the filter
-     Given https://career.quantori.com website is opened 
-     When User opened technology list box filter 
-     And User Chooses SQL technology
-     Then User should see the technology counter change from empty to 1
+    Given https://career.quantori.com website is opened 
+    When User opened technology list box filter 
+    And User Chooses SQL technology
+    Then User should see the technology counter change from empty to 1
 
 Scenario: 1.1_16 Checking the selection of incompatible checkboxes
-     Given https://career.quantori.com/ru/positions website is opened 
-     When User opened competence list box filter
-     And User Chooses Business Analysis  competence
-     And User opened technology list box filter 
-     And User Choose .NET technology
-     Then User should see empty vacancy page with text "If you don't see an open position that suits your skills stack and/or professional background but you are interested in working with us — please send your CV to career@quantori.com. We will try to find something special and interesting for you!"
+    Given https://career.quantori.com/ru/positions website is opened 
+    When User opened competence list box filter
+    And User Chooses Business Analysis  competence
+    And User opened technology list box filter
+    And User Choose .NET technology
+    Then User should see empty vacancy page with text "If you don't see an open position that suits your skills stack and/or professional background but you are interested in working with us — please send your CV to career@quantori.com. We will try to find something special and interesting for you!"
  
 Scenario: 1.1_17 Opening the "Quantori open job positions" page through the "More open job positions" form
-     Given https://career.quantori.com website is opened
-     When User goes below the list of "Quantori Hot Open Job Positions" 
-     And User clicks on the form "More open job position"
-     Then User should be redirected to the new page "https://career.quantori.com/ru/positions"
-     And  User should see default page "Quantori open job positions"
+    Given https://career.quantori.com website is opened
+    When User goes below the list of "Quantori Hot Open Job Positions" 
+    And User clicks on the form "More open job position"
+    Then User should be redirected to the new page "https://career.quantori.com/ru/positions"
+    And  User should see default page "Quantori open job positions"
 
 Scenario: 1.1_18 Checking the adaptation of the list of available jobs when you change the checkbox in the competence and technology filter
-     Given User opened https://career.quantori.com/ru/positions website is opened 
-     And flag is included in the "Data Engineering & Analytics" competence
-     And flag is included in the "SQL" technology
-     And User sees only 4 vacancies
-     When User opens the list box of technologies and disables the "sql" checkbox
-     Then User should see that the job list has been updated to display 8 jobs instead of 4
+    Given User opened https://career.quantori.com/ru/positions website is opened 
+    And flag is included in the "Data Engineering & Analytics" competence
+    And flag is included in the "SQL" technology
+    And User sees only 4 vacancies
+    When User opens the list box of technologies and disables the "sql" checkbox
+    Then User should see that the job list has been updated to display 8 jobs instead of 4
