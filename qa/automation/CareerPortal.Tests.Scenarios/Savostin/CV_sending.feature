@@ -1,6 +1,6 @@
 Feature: 1.0.0 Sending CV
 Background: 
-	Given "Career Quantori" page is opened
+	Given https://career.quantori.com page is opened
 	And only valid CV can be attached to form
 	And all files are in Savostin-folder
 
