@@ -1,8 +1,8 @@
 Feature: 1.0 CV_form.feature
 
 Background:
-Given User opens https://career.quantori.com/ in Google Chrome
-And Chooses "Send your CV" form
+Given User opened https://career.quantori.com/ in Google Chrome
+And scrolled down to the CV form
 
 Scenario: 1.0_01 User can not send empty form
 When User clicks "Send" for empty form
@@ -76,11 +76,6 @@ When User inputs "C q" in "Name" field
 Then Field "Name" should be highlighted in green
 And Error message does not appear
 
-Scenario: 1.0_12 User inputs only first name in field "Name"
-When User inputs "Vlad" in field "Name" without whitespace
-Then Message "Invalid name format" should appear under field "Name"
-And Field "Name" should be highlighted in red
-
 Scenario: 1.0_13 User inputs invalid length data ( 505 symbols) in the field "Message
 When User inputs "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Duis aute irure dolor in reprehenderit in voluptate velit e" in the field "Message"
 Then Message "The maximum number of characters is 500" should appear under field "Message"
@@ -104,14 +99,8 @@ And Error message does not appear
 
 Scenario: 1.0_17 User inputs only numbers before domain in "Email" field
 When User inputs 111111@domain.com in the field "Email"
-Then Field "Email" should be highlighted in red
-But Field "Email" highlighted in green
+Then Field "Email" should be highlighted in green
 And Error message does not appear
-
-Scenario: 1_0_18 User inputs two "@" in "Email" field
-When User inputs "email@domain@domain.com" in the field "Email"
-Then Message "Invalid email format" should appear under field "Email"
-And Field "Email" should be highlighted in red
 
 Scenario Outline: 1.0_19 User attaches valid and invalid CV file with different sizes
 When User attaches CV <CV> 
@@ -131,5 +120,3 @@ Examples:
 | ZIP      | failed |
 | EXE      | failed |
 | XLSX     | failed |
-
-
