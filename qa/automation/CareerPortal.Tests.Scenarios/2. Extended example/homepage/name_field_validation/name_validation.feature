@@ -7,6 +7,7 @@ Background:
 
 @positive
 Scenario Outline: 1.1.1 Validation with latin characters
+
 	
 	When user clicks on <Name_field> Text field
 	And User fills <Name_field> with latin characters

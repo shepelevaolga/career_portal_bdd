@@ -2,6 +2,7 @@ Feature: 1.1.4 Email text field validation
 
  Background:
 
+
  Given User on https://qa-career.quantori.com/ru website
  And User scrolls to the end of page
  And User clicked on email text field

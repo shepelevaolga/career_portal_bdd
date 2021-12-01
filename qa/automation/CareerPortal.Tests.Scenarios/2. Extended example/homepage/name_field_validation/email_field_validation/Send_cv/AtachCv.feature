@@ -12,7 +12,7 @@ Background:
 	And User created 10 megabyte "cv8.doc" file
 	And User created 10.1 megabyte "cv9.doc" file
 	And User on https://qa-career.quantori.com/ru website
-	And User scrolls to the end of the page
+	And User scrolls to the end of the pege
 	And User fills in <name_field> "Timur Abdraimov"
 	And User fills in <email_field> "timurabdraimov4@gmail.com"
 	
