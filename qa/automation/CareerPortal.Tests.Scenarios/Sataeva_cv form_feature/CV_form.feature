@@ -11,89 +11,88 @@ And these two words are separated with one space
 Then the result should be <Result> on the screen
 
 Examples:
-  | Amount | Result                                                                                  | 
-  | 69     | no error message, line under the field is green                                         |
-  | 70     | no error message, line under the field is green                                         | 
-  | 71     | line under the field is red, error message "The maximum number of characters is 70"     | 
+  | Amount | Result                                                                                    | 
+  | 69     | no error message, line under the field is "green"                                         |
+  | 70     | no error message, line under the field is "green"                                         | 
+  | 71     | line under the field is "red", error message "The maximum number of characters is 70"     | 
 
 
 Scenario: 1.0.1_02 field "Name" consists of one word 
 When user types "Hello" in field "Name"
 Then user should get an error message "Invalid name format"
-And line under the field should turn to red
+And line under the field should turn to "red"
 
 Scenario: 1.0.1_03  field "Name" consists of two words, separated with one space
 When user types "Hello world" in field "Name"
-Then line under the field should turn to green
+Then line under the field should turn to "green"
 
 Scenario: 1.0.1_04 two words in field "Name" are separated with two spaces
 When user types "Hello  World" in field "Name"
 Then user should get an error message "Invalid name format"
-And line under the field should turn to red
+And line under the field should turn to "red"
 
 Scenario: 1.0.1_05 Field "Name" has numbers instead of letters
 When user types "123 321" in field "Name"
 Then user should get an error message "Invalid name format"
-And line under the field should turn to red
+And line under the field should turn to "red"
 
 Scenario: 1.0.1_06 Field "Name" has numbers and letters
 When user types "123 Hi" in field "Name"
 Then user should get an error message "Invalid name format"
-And line under the field should turn to red
+And line under the field should turn to "red"
 
 Scenario: 1.0.1_07 error message disappeared in field "Name" when user changes the Name format to the correct one
 When user types "Hello" in field "Name"
 And user gets error "Invalid name format" 
 And user changes "Name" to "Hello World"
-Then line under the field should turn to green
+Then line under the field should turn to "green"
 And he should not get any "Error" message
 
 Scenario: 1.0.1_08 error message disappeared in field "Name" when user changes the length of the field to the correct one
 When user types "Hello world Hello world Hello world Hello world Hello world Hello world" in field "Name"
 And user gets error "The maximum number of characters is 70" 
 And user deletes on symbol
-Then line under the field should turn to green
+Then line under the field should turn to "green"
 And he should not get any "Error" message
 
 Scenario: 1.0.1_09 Field "Name" has special symbols instead of letters
 When user types "@@ @@" in field "Name"
 Then he should get an error message "Invalid name format"
-And line under the field should turn to red
+And line under the field should turn to "red"
 
 Scenario: 1.0.1_10 Field "Name" has special symbols and letters
 When user types "@@ Hi" in field "Name"
 Then he should get an error message "Invalid name format"
-And line under the field should turn to red
+And line under the field should turn to "red"
 
 Scenario: 1.0.1_11 field "Email" is filled in correctly
 When user types "hello@world.hi" in field "Email"
 And user clicks somewhere on the empty space on the page
-Then line under the field should turn to green
-And he should not get any "Error" message
+Then line under the field should turn to "green"
 
 Scenario: 1.0.1_12 field "Email" has incorrect domain part
 When user types "hello@world.h" in field "Email"
 And user clicks somewhere on the empty space on the page
 Then user should get an error message "Invalid email format"
-And line under the field should turn to red
+And line under the field should turn to "red"
 
 Scenario: 1.0.1_13 field "Email" has only special symbols 
 When user types "@@" in field "Email"
 And user clicks somewhere on the empty space on the page
 Then user should get an error message "Invalid email format"
-And line under the field should turn to red
+And line under the field should turn to "red"
 
 Scenario: 1.0.1_14 field "Email" has only numbers
 When user types "123" in field "Email"
 And user clicks somewhere on the empty space on the page
 Then user should get an error message "Invalid email format"
-And line under the field should turn to red
+And line under the field should turn to "red"
 
 Scenario: 1.0.1_15 error message disappeared in field "Email" when user changes the Email format to the correct one
 When user types "hello@world.h" in field "Email"
 And gets error "Invalid email format" 
 And changes "Email" to "hello@world.hi"
-Then line under the field should turn to green
+Then line under the field should turn to "green"
 And user should not get any "Error" message
 
 Scenario: 1.0.1_16 user enlarges the "Text" field 
@@ -104,8 +103,7 @@ Then "Text" field should become larger
 Scenario: 1.0.1_17 field "Text" is filled in with correct (500) amount of symbols
 When user types "Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello wo"
 And user clicks somewhere on the empty space on the page
-Then line under the field should turn to green
-And user should not get any "Error" message
+Then line under the field should turn to "green"
 
 Scenario: 1.0.1_18 field "Text" is filled in with incorrect (501) amount of symbols
 When user types "Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello wor"
@@ -149,12 +147,12 @@ Scenario: 1.0.1_23 error message when user unmarks "I agree to the personal data
 When user marks check box "I agree to the personal data processing"  check box
 And user unmarks "I agree to the personal data processing"  check box
 Then  the check box mark should disappear
-And Text "I agree to the personal data processing" should change color to red 
+And Text "I agree to the personal data processing" should change color to "red" 
 
 Scenario: 1.0.1_24 error message disappear when user marks "I agree to the personal data processing" check box again
 When user marks check box "I agree to the personal data processing"  check box
 And user unmarks "I agree to the personal data processing"  check box
-And Text "I agree to the personal data processing" changes color to red 
+And Text "I agree to the personal data processing" changes color to "red" 
 And user marks check box "I agree to the personal data processing" again
 Then Text "I agree to the personal data processing" changes color to white again
 And user gets no error message 
