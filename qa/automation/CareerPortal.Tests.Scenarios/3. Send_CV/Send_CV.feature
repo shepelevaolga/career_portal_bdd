@@ -9,8 +9,8 @@ Scenario Outline: Correct CV submission
     Then CV should be successfully submitted
 
     Examples:
-        | name | email                    | message     |
-        | Egor | egor.berdin@quantori.com | Hello_world |
+        | name        | email                    | message     |
+        | Egor  Berdin| egor.berdin@quantori.com | Hello_world |
 
 
 
@@ -20,13 +20,13 @@ Scenario Outline: Correct CV submission without message
     Then CV should be successfully submitted
 
     Examples:
-        | name | email                    |
-        | Egor | egor.berdin@quantori.com |
+        | name       | email                    |
+        | Egor Berdin| egor.berdin@quantori.com |
  
 
 
 Scenario Outline: CV submission without Name
-    Given user entered a <email>, attached CV (PDF less than 10 MB), checked the checkbox
+    Given user entered an <email>, attached CV (PDF less than 10 MB), checked the checkbox
     When user clicks on a button "Send"
     Then under the field "Name" a warning appears "This field is required"
 
@@ -93,10 +93,23 @@ Scenario Outline: CV submission without CV
 
 
 
-Scenario: CV submission with CV in wrong format
+Scenario Outline: CV submission with CV in different formats
     Given user clicked on the button "Attach CV"
-    When user selects a .txt file
-    Then there should be a warning "Invalid file format"
+    When user selects a <format> file
+    Then <result> 
+
+    Examples:
+        | format | result                                          |
+        | .txt   | there should be a warning "Invalid file format" |
+        | .doc   | the file will be added successfully             |
+        | .docx  | the file will be added successfully             |
+        | .rtf   | the file will be added successfully             |
+        | .pdf   | the file will be added successfully             |
+        | .zip   | there should be a warning "Invalid file format" |
+        | .rar   | there should be a warning "Invalid file format" |
+        | .avi   | there should be a warning "Invalid file format" |
+        | .jpg   | there should be a warning "Invalid file format" |
+        | .png   | there should be a warning "Invalid file format" |
 
 
 
