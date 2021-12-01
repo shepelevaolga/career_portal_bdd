@@ -86,7 +86,7 @@ Scenario Outline: 4.1_06 Validation is triggered for invalid "Name"
 
 @Type:Negative
 @Priority:Major
-Scenario Outline: 4.1_07 Validation is triggered for a message that is too long
+Scenario: 4.1_07 Validation is triggered for a message that is too long
     Given user filled the Send CV form
 	When user types 501 or more characters in the "Message" field
     Then user should see a red border and text "The maximum number of characters is 500" under "Message" field, no sending occurs
