@@ -6,9 +6,9 @@ Scenario Outline: 4.1_01 Correct display of the cv submit form
     Given user wanted to send CV
     When user opens "<name of the page>" the page
     Then user finds the form for sending CV
-	And the form includes "Name", "Email", "Message" fields
-	And the form includes "Attach CV" and "Send" buttons
-	And the form includes checkbox "I agree to the personal data processing"
+    And the form includes "Name", "Email", "Message" fields
+    And the form includes "Attach CV" and "Send" buttons
+    And the form includes checkbox "I agree to the personal data processing"
 
     Examples: 
 		| name of the page                                               |
@@ -26,7 +26,7 @@ Scenario Outline: 4.1_02 Successful submission with filled "Name", "Email" field
         | Евгения Т          | tikeeva1998@mail.ru | I will be a good worker.   | cv.doc 2Mb  | True     |
         | Evgeniia T S       | tikeeva_es@mail.ru  | Please consider my resume. | cv.docx 2Mb | True     |
         | Ж'еня-Тикеева, мл. | tikeeva1998@mail.ru | I will be a good worker.   | cv.rtf 2Mb  | True     |
-	When user clicks "Send" button
+    When user clicks "Send" button
     Then user should see the message that CV was submitted
 
     Examples: 
@@ -39,11 +39,12 @@ Scenario Outline: 4.1_02 Successful submission with filled "Name", "Email" field
 Scenario Outline: 4.1_03 If important fields are empty, no sending occurs, errors are highlighted
     Given user entered "<Name>", "<Email>", "<Attach CV>", "<Checkbox>" fields with following combination of values:
         | Name               | Email               | Attach CV   | Checkbox |
+        |                    |                     |             |          |
         |                    | tikeeva_es@mail.ru  | cv.pdf 10Mb | True     |
         | Евгения Т          |                     | cv.doc 2Mb  | True     |
         | Evgeniia T S       | tikeeva_es@mail.ru  |             | True     |
         | Ж'еня-Тикеева, мл. | tikeeva1998@mail.ru | cv.rtf 2Mb  |          |
-	When user clicks "Send" button
+    When user clicks "Send" button
     Then user should see a red border and error text under empty field, no sending occurs
 
 @Type:Negative
@@ -55,7 +56,7 @@ Scenario Outline: 4.1_04 If the fields are filled in incorrectly, sending does n
         | Евгения Т          | евгения@mail.ru     | cv.doc 2Mb  | True     |
         | Evgeniia T S       | tikeeva_es@mail.ru  | cv.csv 12Mb | True     |
         | Ж'еня-Тикеева, мл. | tikeeva1998@mail.ru | cv.rtf 2Mb  | False    |
-	When user clicks "Send" button
+    When user clicks "Send" button
     Then user should see a red border and error text under empty field, no sending occurs
 
 @Type:Negative
@@ -88,17 +89,17 @@ Scenario Outline: 4.1_06 Validation is triggered for invalid "Name"
 @Priority:Major
 Scenario: 4.1_07 Validation is triggered for a message that is too long
     Given user filled the Send CV form
-	When user types 501 or more characters in the "Message" field
+    When user types 501 or more characters in the "Message" field
     Then user should see a red border and text "The maximum number of characters is 500" under "Message" field, no sending occurs
 
 @Type:Negative
 @Priority:Critical
 Scenario Outline: 4.1_08 Attach invalid file
-	Given user filled the Send CV form
+    Given user filled the Send CV form
     When user attaches a file with various "<Extension>", "<Size>"
-	Then user should see a message "Something went wrong"
-
-	Examples:
+    Then user should see a message "Something went wrong"
+    
+    Examples:
         | Extension | Size |
         | .jpeg     | 2Mb  |
         | .csv      | 4Mb  |
