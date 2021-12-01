@@ -1,4 +1,4 @@
-Feature: Send CV
+Feature: Form to send CV
 
     Background:
         Given I am on the page https://career.quantori.com/positions/senior-qa-automation-javascript-engineer
@@ -26,10 +26,10 @@ Feature: Send CV
 
 
     @Negative
-    Scenario Outline: Check the Name field
+    Scenario Outline: Check the Name field validation
         Given I have filled the Name field with <Name>
         When I click the Send button
-        Then I should see the result <Result>
+        Then I should see the message <Result> under the Name field
         Examples:
             | Name                                                                    | Result                                 |
             |                                                                         | This field is required                 |
@@ -46,10 +46,10 @@ Feature: Send CV
 
 
     @Negative
-    Scenario Outline: Check the Email field
+    Scenario Outline: Check the Email field validation
         Given I have filled the Email field with <Email>
         When I click the Send button
-        Then I should see the result <Result>
+        Then I should see the message <Result> under the Email field
         Examples:
             | Email                                                                   | Result                                 |
             |                                                                         | This field is required                 |
@@ -62,10 +62,10 @@ Feature: Send CV
 
 
     @Negative
-    Scenario Outline: Check the Message field
+    Scenario Outline: Check the Message field validation
         Given I have filled the Message field with <Data>
         When I click the Send button
-        Then I should see the result "The maximum number of characters is 500"
+        Then I should see the message "The maximum number of characters is 500" under the Message field
         Examples:
             | Data                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
             | The Isle of Man's potential to play a "key" role in renewable electricity generation was recognised at the latest British-Irish Council summit, the deputy chief minister has said. Climate change was among the issues discussed as Jane Poole-Wilson attended the conference in Cardiff last week. She said delegates agreed the island's central location meant it could help others "maximise" renewable output. Other issues discussed included healthcare access and youth justice. Ministers had recognised th |
@@ -75,7 +75,7 @@ Feature: Send CV
     @Negative
     Scenario Outline: Attach CV files more than 10 Mb
         When I attach <CV_file> more than 10 Mb
-        Then I should see the result <Result>
+        Then I should see the message <Result>
         Examples:
             | CV_file | Result               |
             | cv.pdf  | Something went wrong |
