@@ -27,14 +27,14 @@ Scenario Outline: 3.2_05 User enters various types of name in the CV form
 	Then the result <result> should appeared
 
 	Examples:
-	| name                                                   | result                       |
+	| name                                                   | result                   |
 	| nothing entered ()                                     | "This field is required" |
 	| one character (n)                                      | "Invalid name format"    |
 	| one word (nina)                                        | "Invalid name format"    |
 	| one word, space, numberes (nina 1988)                  | "Invalid name format"    |
 	| special symbols, space, special symbols (/*-+?:%; 909) | "Invalid name format"    |
 	| two characters with space in between (n s)             | accepted                 | 
-	| two words in English (nina star)                         | accepted                 | 
+	| two words in English (nina star)                       | accepted                 | 
 	| two words in Cyrillic                                  | accepted                 | 
 
 @negative
