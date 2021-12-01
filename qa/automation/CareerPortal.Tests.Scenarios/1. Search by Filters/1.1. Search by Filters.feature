@@ -18,24 +18,24 @@ Background:
     |Senior Data Engineer                                  ||                 ||            |
 
 
-Scenario: 1.1_02 Checking the function of the search button
+Scenario: 1.1_01 Checking the function of the search button
     When User pushes "search" button
     Then User should be redirected to the new page "https://career.quantori.com/ru/positions"
     And  User should see default page "Quantori open job positions"
 
-Scenario: 1.1_03 Returning to the general job list from the "Quantori Hot Open Job Positions list"
+Scenario: 1.1_02 Returning to the general job list from the "Quantori Hot Open Job Positions list"
     Given User opened https://career.quantori.com/ru/positions/cloud-python-engineer website
     When At the bottom of the page user push "Back to open job positions" button
     Then User should be redirected to the new page https://career.quantori.com/ru/positions
     And  User should see default page "Quantori open job positions"
 
-Scenario: 1.1_04 Checking the search by 1 competence filter
+Scenario: 1.1_03 Checking the search by 1 competence filter
     When User chooses "Databases" competence with list box filter Competence
     And User pushes "search" button
     Then User should be redirected to the new page https://career.quantori.com/ru/positions
     And User should see only 2 vacancy "Data Engineer (SQL)" and "Snowflake Data Warehouse Certified Engineer"
 
-Scenario Outline: 1.1_05 Checking the search by 1 technology filter
+Scenario Outline: 1.1_04 Checking the search by 1 technology filter
     When User chooses "SQL" technology with list box filter Technology
     And User pushes "search" button
     Then User should be redirected to the new page https://career.quantori.com/ru/positions
@@ -54,13 +54,13 @@ Scenario Outline: 1.1_05 Checking the search by 1 technology filter
                 |Senior Data Engineer                                  |
 
 
-Scenario: 1.1_06 Checking the search by 1 competence filter and 1 technology filter
+Scenario: 1.1_05 Checking the search by 1 competence filter and 1 technology filter
     When User chooses "Databases" competence with list box filter
     And User chooses "SQL" technology with list box filter
     Then User should be redirected to the new page https://career.quantori.com/ru/positions
     And User should see only 1 vacancy "Data Engineer (SQL)"
 
-Scenario: 1.1_07 Checking the link with the selected components and technologies 
+Scenario: 1.1_06 Checking the link with the selected components and technologies 
     When User opened competence list box filter 
     And User Chooses Databases competence 
     And User opened technologies list box filter 
@@ -71,13 +71,13 @@ Scenario: 1.1_07 Checking the link with the selected components and technologies
     Then User should be redirected to the new page https://career.quantori.com/ru?competences=Databases&technologies=SQL
     And User should see only 1 vacancy "Data Engineer (SQL)"
 
-Scenario: 1.1_08 Checking the form "Open job positions" without filters
+Scenario: 1.1_07 Checking the form "Open job positions" without filters
     Given https://career.quantori.com/ru/positions website is opened 
     When User pushes "Open job positions" form
     Then User should stay on the same page
     And User should see default page with positions 
 
-Scenario: 1.1_09 Checking the form "Open job positions" with filters
+Scenario: 1.1_08 Checking the form "Open job positions" with filters
     Given https://career.quantori.com/ru/positions website is opened 
     When User chooses Databases competence with list box filter
     And User chooses SQL technology with list box filter
@@ -85,47 +85,47 @@ Scenario: 1.1_09 Checking the form "Open job positions" with filters
     Then User should be redirected to the new page
     And  User should see default page "Quantori open job positions" without filters
 
-Scenario: 1.1_10 Saving the cache when the page is refreshed on main Quantori page
+Scenario: 1.1_09 Saving the cache when the page is refreshed on main Quantori page
     When User chooses Databases competence with list box filter
     And User chooses SQL technology with list box filter
     And User refreshes page
     Then User should see default page with filters
 
-Scenario: 1.1_11 Saving the cache when the page is refreshed on "Quantori open job positions" page
+Scenario: 1.1_10 Saving the cache when the page is refreshed on "Quantori open job positions" page
     Given  https://career.quantori.com/ru/positions website is opened 
     When User chooses Databases competence with list box filter
     And User chooses SQL technology with list box filter
     And User refreshes page
     Then User should see https://career.quantori.com/ru/positions?competences=Databases&technologies=SQL page with filters
 
-Scenario: 1.1_12  Checking the checkboxes when selecting a competency
+Scenario: 1.1_11  Checking the checkboxes when selecting a competency
     When User chooses Databases competence with list box filter
     Then User should see activated checkbox
 
-Scenario: 1.1_13  Checking the checkboxes when selecting a technology
+Scenario: 1.1_12  Checking the checkboxes when selecting a technology
     When User chooses SQL technology with list box filter
     Then User should see activated checkbox
 
-Scenario: 1.1_14  Checking the competency counter change when selecting the checkbox in the filter
+Scenario: 1.1_13  Checking the competency counter change when selecting the checkbox in the filter
     When User chooses Databases competence with list box filter
     Then User should see the competence counter changes from empty to 1
 
-Scenario: 1.1_15  Checking the technology counter change when selecting the checkbox in the filter
+Scenario: 1.1_14  Checking the technology counter change when selecting the checkbox in the filter
     When User chooses SQL technology with list box filter
     Then User should see the technology counter change from empty to 1
 
-Scenario: 1.1_16 Checking the selection of incompatible checkboxes
+Scenario: 1.1_15 Checking the selection of incompatible checkboxes
     Given https://career.quantori.com/ru/positions website is opened 
     When User chooses Business Analysis competence with list box filter
     And User chooses .NET technology with list box filter
     Then User should see empty vacancy page with text "If you don't see an open position that suits your skills stack and/or professional background but you are interested in working with us — please send your CV to career@quantori.com. We will try to find something special and interesting for you!"
  
-Scenario: 1.1_17 Opening the "Quantori open job positions" page through the "More open job positions" form
+Scenario: 1.1_16 Opening the "Quantori open job positions" page through the "More open job positions" form
     When User clicks on "More open job positions" below the list of "Quantori Hot Open Job Positions"
     Then User should be redirected to the new page "https://career.quantori.com/ru/positions"
     And  User should see default page "Quantori open job positions"
 
-Scenario: 1.1_18 Checking the adaptation of the list of available jobs when you change the checkbox in the competence and technology filter
+Scenario: 1.1_17 Checking the adaptation of the list of available jobs when you change the checkbox in the competence and technology filter
     Given User opened https://career.quantori.com/ru/positions website is opened 
     And flag is included in the "Data Engineering & Analytics" competence
     And flag is included in the "SQL" technology
