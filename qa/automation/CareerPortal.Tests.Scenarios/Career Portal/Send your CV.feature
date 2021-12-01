@@ -1,24 +1,22 @@
 Feature: "Send us your CV" form
 
-Background: User is on Career Portal page
+Background: User is on Career Portal page (https://career.quantori.com/ru)
 
-Scenario: 1.1 User can fill the "Name" text field
-	When User clicks the "Name" text field 
-	Then the "Name" text field is available for text entry
+Scenario Outline: 1.1 User can fill in text fields
+	When User clicks the <field> text field 
+	Then the <field> text field is available for text entry
 
-Scenario: 1.2 User can fill the "Email" text field
-	When User clicks the "Email" text field 
-	Then the "Email" text field is available for text entry
+	Examples:
+	|  field  |
+	|  "Name" |
+	| "Email" |
+	|"Message"|
 
-Scenario: 1.3 User can select the "Message" text field
-	When User clicks the "Message" text field 
-	Then the "Message" text field is available for text entry
-
-Scenario: 1.4 User can fill the "I agree to the personal data processing" checkbox
+Scenario: 1.2 User can fill the "I agree to the personal data processing" checkbox
 	When User clicks the "I agree to the personal data processing" checkbox
 	Then the "I agree to the personal data processing" checkbox is checked
 
-Scenario: 1.5 User can attach a CV file 
+Scenario: 1.3 "Attach CV" button opens available files
 	When User clicks the "Attach CV" button
 	Then modal window with available device files opens
 
@@ -77,9 +75,9 @@ Scenario Outline: 3.1.2 "Email" text field is not valid
 	|test..@test.com|
 	| .test@test.ru |
 
-Scenario: 3.2 Ñonfirmation when the email is correct
+Scenario: 3.2 Confirmation when the email is correct
 	Given User has entered the correct email
-	And User fills in all of the required fields
+	And User fills in all of the required fields with valid data
 	When User clicks the "Send" button
 	Then a letter of confirmation should be send to the specified email
  
@@ -115,7 +113,8 @@ Scenario Oitline: 4.2 User can attach only a valid CV file
 Scenario: 4.4 Changing CV file for a new one
 	Given User has attached a valid CV file 
 	When User clicks "Attach CV" button 
-	Then Then modal window with available <format> device files opens
+	And User chooses a new file through the modal window with available <format> device files 
+	Then new file is attached
 	
 	Examples:
 	|format|
