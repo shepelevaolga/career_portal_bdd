@@ -13,10 +13,10 @@ Scenario Outline:1.2.3_01 Footer "text-containing" elements should be visible at
 Given user opened "career.quantori.com"  
 When user scrolls to the bottom of "career.quantori.com"  page 
 Then following "<text-containing element>" with "<text>" text should be displayed in the footer: 
-|text-containing element                                        |text                                                           | 
-|link                                                           |Data Privacy Policy                                            | 
-|link                                                           |Cookies Settings                                               | 
-|copyright text                                                 |© 2021 Quantori. Custom Software Solutions. All rights reserved|
+|text-containing element                                            |text                                                                    | 
+|link                                                               |Data Privacy Policy                                                     | 
+|link                                                               |Cookies Settings                                                        | 
+|copyright text                                                     |Copyright© 2021 Quantori. Custom Software Solutions. All rights reserved|
 
 Scenario Outline:1.2.3_02 Footer "logo-containing" elements should be visible at the bottom of the "career.quantori.com" page
 Given user opened "career.quantori.com"  
@@ -55,15 +55,15 @@ Given user opened "career.quantori.com"
 And user scrolled to the bottom of the "career.quantori.com" page
 And user clicked a link with "Cookies Settings" text in the footer
 When a pop-up window with selected by default "Necessary cookies" checkbox and "Other cookies" checkbox is displayed
-Then user should click "Submit preferences" button
+Then "Submit preferences" button should be clicked
 
 Scenario:1.2.3_06 Footer link "Cookies Settings" allows a user to choose and submit other cookies preferences
 Given user opened "career.quantori.com"  
 And user scrolled to the bottom of the "career.quantori.com" page
 And user clicked a link with "Cookies Settings" text in the footer
 When a pop-up window with selected by default "Necessary cookies" checkbox and "Other cookies" checkbox is displayed
-Then user should select "Other cookies" checkbox 
-And user should click "Submit preferences" button 
+Then "Other cookies" checkbox should be selected
+And "Submit preferences" button should be clicked
 
 Scenario:1.2.3_07 Pop-up window "Cookies Settings" contains a link to "Data Privacy policy" pdf file
 Given user opened "career.quantori.com"  
