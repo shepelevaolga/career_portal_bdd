@@ -11,7 +11,7 @@ additional contact opportunities
 
 Scenario Outline:1.2.3_01 Footer "text-containing" elements should be visible at the bottom of the "career.quantori.com" page
 Given user opened "career.quantori.com"  
-When user scrolls to the bottom of "career.quantori.com" page 
+When user scrolls to the bottom of "career.quantori.com"  page 
 Then following "<text-containing element>" with "<text>" text should be displayed in the footer: 
 |text-containing element                                        |text                                                           | 
 |link                                                           |Data Privacy Policy                                            | 
