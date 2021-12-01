@@ -19,7 +19,7 @@ Scenario Outline: 4.1_01 Correct display of the cv submit form
 @Priority:Critical
 Scenario Outline: 4.1_02 Successful submission with filled "Name", "Email" fields, checkbox and attached CV
     Given user founded the Send CV form on page "<name of the page>"
-    And user entered "<Name>", "<Email>", "<Message>", "<Attach CV>", "<Checkbox>" fields with foolowing combination of values:
+    And user entered "<Name>", "<Email>", "<Message>", "<Attach CV>", "<Checkbox>" fields with following combination of values:
         | Name               | Email               | Message                    | Attach CV   | Checkbox |
         | Evgeniia T         | tikeeva_es@mail.ru  |                            | cv.pdf 2Mb  | True     |
         | Evgeniia T         | tikeeva_es@mail.ru  | Please consider my resume. | cv.pdf 10Mb | True     |
@@ -37,7 +37,7 @@ Scenario Outline: 4.1_02 Successful submission with filled "Name", "Email" field
 @Type:Negative
 @Priority:Critical
 Scenario Outline: 4.1_03 If important fields are empty, no sending occurs, errors are highlighted
-    Given user entered "<Name>", "<Email>", "<Attach CV>", "<Checkbox>" fields with foolowing combination of values:
+    Given user entered "<Name>", "<Email>", "<Attach CV>", "<Checkbox>" fields with following combination of values:
         | Name               | Email               | Attach CV   | Checkbox |
         |                    | tikeeva_es@mail.ru  | cv.pdf 10Mb | True     |
         | Евгения Т          |                     | cv.doc 2Mb  | True     |
@@ -49,7 +49,7 @@ Scenario Outline: 4.1_03 If important fields are empty, no sending occurs, error
 @Type:Negative
 @Priority:Critical
 Scenario Outline: 4.1_04 If the fields are filled in incorrectly, sending does not occur, errors are highlighted
-    Given user enters "<Name>", "<Email>", "<Attach CV>", "<Checkbox>" fields with foolowing combination of values:
+    Given user enters "<Name>", "<Email>", "<Attach CV>", "<Checkbox>" fields with following combination of values:
         | Name               | Email               | Attach CV   | Checkbox |
         | 123456 8102        | tikeeva_es@mail.ru  | cv.pdf 10Mb | True     |
         | Евгения Т          | евгения@mail.ru     | cv.doc 2Mb  | True     |
