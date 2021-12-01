@@ -63,7 +63,7 @@ And user scrolled to the bottom of the "career.quantori.com" page
 And user clicked a link with "Cookies Settings" text in the footer
 When a pop-up window with selected by default "Necessary cookies" checkbox and "Other cookies" checkbox is displayed
 Then user should select "Other cookies" checkbox 
-And user should click "Submit preferences" button
+And user should click "Submit preferences" button 
 
 Scenario:1.2.3_07 Pop-up window "Cookies Settings" contains a link to "Data Privacy policy" pdf file
 Given user opened "career.quantori.com"  
@@ -116,4 +116,4 @@ And user opened "career.quantori.com"
 And user scrolled to the bottom of the page
 When user clicks a mailto button with an "Envelope" logo 
 Then a pop-up email window with "Add an email account" is displayed
-And user should add his default email client 
+And user's default email client should be added
