@@ -18,11 +18,11 @@ And Deafult list of Technologies is created:
 		| Azure       |
 		| Python      |
 And Positions are created:
-		| title          | competency | technology1 | technology2 | technology3 |
-		| Junior QA      | QA         | .NET        | C#          |             |
-		| Middle QA      | QA         | .NET        | C#          |             |
-		| Data Engineer  | Databases  |             |             |             |
-		| Senior DevOps  | DevOps     | AWS         | Azure       | Python      |
+		| title         | competency | technology1 | technology2 | technology3 |
+		| Junior QA     | QA         | .NET        | C#          |             |
+		| Middle QA     | QA         | .NET        | C#          |             |
+		| Data Engineer | Databases  |             |             |             |
+		| Senior DevOps | DevOps     | AWS         | Azure       | Python      |
 And Main page is opened
 
 Scenario: 1.1_01 Search with empty filters
@@ -56,7 +56,7 @@ Scenario: 1.1_05 Search by Technology filter only - single select - result exist
 Given User selected 'Azure' technology
 When User clicks Search button
 Then New page is opened with 'Azure' item selected in Technologies dropdown
-And There is 1 position 'Senior DevOps'in the result area
+And There is 1 position 'Senior DevOps' in the result area
 
 Scenario: 1.1_06 Search by Technology filter only - single select - result is empty
 Given User selected 'Android' technology

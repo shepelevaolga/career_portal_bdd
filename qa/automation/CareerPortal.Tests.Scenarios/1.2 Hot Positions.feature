@@ -9,7 +9,7 @@ Given Opened main page
 When User scrolls to area after search button
 Then Hot position are is now shown, right after search area user sees About Quantori area
 
-Scenario: 1.2_02 There is onle 1 hot position and 2 not hot positions
+Scenario: 1.2_02 There is only 1 hot position and 2 not hot positions
 Given Created 1 hot position 'Senior QA'
 And Created 2 not hot positions `Junior QA` and 'Junior Engineer'
 When User opens main page
@@ -41,7 +41,7 @@ Given Created 2 hot and 1 not hot positions:
 		| title                                       | is hot |
 		| Cloud Python Engineer                       | true   |
 		| Senior Linux Engineer                       | true   |
-		| Senior QA Automation (JavaScript) Engineer  | false   |
+		| Senior QA Automation (JavaScript) Engineer  | false  |
 And User opened main page
 When User clicks on card with name 'Cloud Python Engineer'
 Then new page is opened with details about position 'Cloud Python Engineer'

@@ -3,7 +3,7 @@ Feature: 1.7 Hot positions - Responsive UI cards
 
 Background:
 Given There are 4 hot positions:
-	    | title                                       |
+		| title                                       |
 		| Cloud Python Engineer                       |
 		| Senior Linux Engineer                       |
 		| Senior QA Automation (JavaScript) Engineer  |

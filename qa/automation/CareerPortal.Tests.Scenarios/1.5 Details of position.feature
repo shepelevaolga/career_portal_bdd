@@ -23,7 +23,7 @@ Then Page is scrolled to the form where user can enter Name/Email etc
 
 Scenario: 1.5_03 Sending CV - positive test
 Given Opened position 'Senior QA' page
-When User enters name 'Pavel'
+When User enters name 'Pavel I'
 And User enters email 'pavel.bogdanov@quantori.com'
 And User clicks `Attach CV` button and upload pdf file less than 10 mb
 And User clicks 'I agree to the personal data processing' checkbos
@@ -63,7 +63,7 @@ Scenario Outline: 1.5_08 Sending CV - email is invalid
 Given Opened position 'Senior QA' page
 When User clicks on Email input control and enters <email>
 And User clicks 'Send' button
-Then Error message 'Invalid email format' is show bellow Name input
+Then Error message 'Invalid email format' is show bellow Email input
 And input control is outlined red line
 
 Examples:
@@ -88,7 +88,7 @@ Then Error message disappeared under Email and control is outlined with green li
 Scenario: 1.5_10 Sending CV - attachment is missing
 Given Opened position 'Senior QA' page
 And name is enterdd 'aa aa'
-And email is entered abc@abc.aa'
+And email is entered 'abc@abc.aa'
 And Checkbox 'I agree to the personal data processing' is checked
 When User clicks on 'Send' button
 Then Button 'Attach CV' changes color to red and form is not sent

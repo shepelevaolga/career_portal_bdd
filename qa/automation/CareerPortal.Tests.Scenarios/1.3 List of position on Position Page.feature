@@ -31,6 +31,6 @@ Given There are 2 positions:
 		| title                                       |
 		| Cloud Python Engineer                       |
 		| Senior Linux Engineer                       |
-And '/positions'page is opened
+And '/positions' page is opened
 When clicks on card with title 'Senior Linux Engineer'
 Then New page is opened with details of the position
