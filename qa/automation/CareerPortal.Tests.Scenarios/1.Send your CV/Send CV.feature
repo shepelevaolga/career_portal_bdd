@@ -184,8 +184,8 @@ Scenario Outline: 1.1.13. Checking the disappearing of placeholders in  text fie
 @AttachCVbutton
 
 Scenario Outline: 1.1.14. Attaching a valid document 
-	When user clicks on "Attach CV" button
-	And user attaches a file in <format> format weighing less or equal 10 Mb with the name <name>
+	Given user clicks on "Attach CV" button
+	When user attaches a file in <format> format weighing less or equal 10 Mb with the name <name>
     Then attached document <name> under "Attach CV" button  should appeared 
 
 	Examples: 
@@ -198,11 +198,11 @@ Scenario Outline: 1.1.14. Attaching a valid document
 
 
 Scenario Outline: 1.1.15. Attaching invalid document 
-    When user clicks on "Attach CV" button
+    Given user clicks on "Attach CV" button
    	And user attaches a file in <format> format weighing less or equal 10 Mb with the name <name>
-    Then warning message "Something went wrong Invalid file format. Please try PDF, DOC, DOCX or RTF." and "OK" button should appeared
+    When warning message "Something went wrong Invalid file format. Please try PDF, DOC, DOCX or RTF." and "OK" button should appeared
 	And user clicks on "OK" button
-	And user sees that <name> did not attach
+	Then file <name> should not attach
 
 
 	Examples: 
@@ -213,11 +213,11 @@ Scenario Outline: 1.1.15. Attaching invalid document
 	| XML    | name.xml |
 
 Scenario Outline: 1.1.16. Attaching heavy valid document 
-	When user clicks on "Attach CV" button
+	Given user clicks on "Attach CV" button
 	And user attaches a file in <format>  weighing more than 10 Mb with the name <name>
-    Then user sees a warning message "Something went wrong Max file size 10 Mb" and "OK" button
+    When user sees a warning message "Something went wrong Max file size 10 Mb" and "OK" button
 	And user clicks on "OK" button
-	And user sees that <name> did not attach
+	Then file <name> should not attach
 
 	Examples: 
 	| format | name      |
