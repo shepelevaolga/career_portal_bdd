@@ -19,12 +19,13 @@ Scenario Outline: 4.1_01 Correct display of the cv submit form
 @Priority:Critical
 Scenario Outline: 4.1_02 Successful submission with filled "Name", "Email" fields, checkbox and attached CV
     Given user founded the Send CV form on page "<name of the page>"
-    And user entered "<Name>", "<Email>", "<Attach CV>", "<Checkbox>" fields with foolowing combination of values:
-        | Name               | Email               | Attach CV   | Checkbox |
-        | Evgeniia T         | tikeeva_es@mail.ru  | cv.pdf 10Mb | True     |
-        | Евгения Т          | tikeeva1998@mail.ru | cv.doc 2Mb  | True     |
-        | Evgeniia T S       | tikeeva_es@mail.ru  | cv.docx 2Mb | True     |
-        | Ж'еня-Тикеева, мл. | tikeeva1998@mail.ru | cv.rtf 2Mb  | True     |
+    And user entered "<Name>", "<Email>", "<Message>", "<Attach CV>", "<Checkbox>" fields with foolowing combination of values:
+        | Name               | Email               | Message                    | Attach CV   | Checkbox |
+        | Evgeniia T         | tikeeva_es@mail.ru  |                            | cv.pdf 2Mb  | True     |
+        | Evgeniia T         | tikeeva_es@mail.ru  | Please consider my resume. | cv.pdf 10Mb | True     |
+        | Евгения Т          | tikeeva1998@mail.ru | I will be a good worker.   | cv.doc 2Mb  | True     |
+        | Evgeniia T S       | tikeeva_es@mail.ru  | Please consider my resume. | cv.docx 2Mb | True     |
+        | Ж'еня-Тикеева, мл. | tikeeva1998@mail.ru | I will be a good worker.   | cv.rtf 2Mb  | True     |
 	When user clicks "Send" button
     Then user should see the message that CV was submitted
 
@@ -33,36 +34,9 @@ Scenario Outline: 4.1_02 Successful submission with filled "Name", "Email" field
 		| https://career.quantori.com/ru                                 |
 		| https://career.quantori.com/ru/positions/cloud-python-engineer |
 
-@Type:Positive
-@Priority:Critical
-Scenario: 4.1_03 Successful submission with filled "Name", "Email", "Message" fields, checkbox and attached CV
-    Given user entered "<Name>", "<Email>", "<Message>", "<Attach CV>", "<Checkbox>" fields with foolowing combination of values:
-        | Name               | Email               | Message                    | Attach CV   | Checkbox |
-        | Evgeniia T         | tikeeva_es@mail.ru  | Please consider my resume. | cv.pdf 10Mb | True     |
-        | Евгения Т          | tikeeva1998@mail.ru | I will be a good worker.   | cv.doc 2Mb  | True     |
-        | Evgeniia T S       | tikeeva_es@mail.ru  | Please consider my resume. | cv.docx 2Mb | True     |
-        | Ж'еня-Тикеева, мл. | tikeeva1998@mail.ru | I will be a good worker.   | cv.rtf 2Mb  | True     |
-	When user clicks "Send" button
-    Then user should see the message that CV was submitted
-
-@Type:Positive
-@Priority:Critical
-Scenario Outline: 4.1_04 User can attach a valid file
-    Given user filled the Send CV form
-    When user attaches a file in "<Extension>" format
-	And file size is less than or equal to 10 Mb
-	Then attached file name should be displayed under the "Attach CV" button
-
-	Examples:
-        |Extension|
-		|.pdf     |
-		|.doc     |
-		|.docx    |
-		|.rtf     | 
-
 @Type:Negative
 @Priority:Critical
-Scenario: 4.1_05 If important fields are empty, no sending occurs, errors are highlighted
+Scenario Outline: 4.1_03 If important fields are empty, no sending occurs, errors are highlighted
     Given user entered "<Name>", "<Email>", "<Attach CV>", "<Checkbox>" fields with foolowing combination of values:
         | Name               | Email               | Attach CV   | Checkbox |
         |                    | tikeeva_es@mail.ru  | cv.pdf 10Mb | True     |
@@ -74,7 +48,7 @@ Scenario: 4.1_05 If important fields are empty, no sending occurs, errors are hi
 
 @Type:Negative
 @Priority:Critical
-Scenario: 4.1_06 If the fields are filled in incorrectly, sending does not occur, errors are highlighted
+Scenario Outline: 4.1_04 If the fields are filled in incorrectly, sending does not occur, errors are highlighted
     Given user enters "<Name>", "<Email>", "<Attach CV>", "<Checkbox>" fields with foolowing combination of values:
         | Name               | Email               | Attach CV   | Checkbox |
         | 123456 8102        | tikeeva_es@mail.ru  | cv.pdf 10Mb | True     |
@@ -86,7 +60,7 @@ Scenario: 4.1_06 If the fields are filled in incorrectly, sending does not occur
 
 @Type:Negative
 @Priority:Critical
-Scenario: 4.1_07 Validation is triggered for invalid "Email"
+Scenario Outline: 4.1_05 Validation is triggered for invalid "Email"
     Given user filled "Email" field with "<Input>" values:
        | Input           |
        | 123456          |
@@ -98,7 +72,7 @@ Scenario: 4.1_07 Validation is triggered for invalid "Email"
 
 @Type:Negative
 @Priority:Major
-Scenario: 4.1_08 Validation is triggered for invalid "Name"
+Scenario Outline: 4.1_06 Validation is triggered for invalid "Name"
     Given user filled "Name" field with "<Input>" values:
        | Input       |
        | 123456      |
@@ -112,14 +86,14 @@ Scenario: 4.1_08 Validation is triggered for invalid "Name"
 
 @Type:Negative
 @Priority:Major
-Scenario: 4.1_09 Validation is triggered for a message that is too long
+Scenario Outline: 4.1_07 Validation is triggered for a message that is too long
     Given user filled the Send CV form
 	When user types 501 or more characters in the "Message" field
     Then user should see a red border and text "The maximum number of characters is 500" under "Message" field, no sending occurs
 
 @Type:Negative
 @Priority:Critical
-Scenario Outline: 4.1_10 Attach invalid file
+Scenario Outline: 4.1_08 Attach invalid file
 	Given user filled the Send CV form
     When user attaches a file with various "<Extension>", "<Size>"
 	Then user should see a message "Something went wrong"
