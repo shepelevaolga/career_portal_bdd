@@ -1,17 +1,23 @@
 Feature: 1.1.4 Email text field validation
 
+ Background:
+
+ Given User on https://qa-career.quantori.com/ru website
+ And User scrolls to the end of page
+ And User clicked on email text field
+
 @Positive
-Scenario Outline: Validation with valid email
-	Given User clicked on email text field
+Scenario Outline:1.1.8 Validation with valid email
+	
 	When User fills 'timurabdraimov4@gmail.com' in '<email>' text field
 	And user navigates away from blurs the <email> text field
 	Then The system displayed that <email> text field correct
 	       
 	
 @negative
-Scenario Outline: Validation with invalid email
+Scenario Outline: 1.1.9 Validation with invalid email
 	
-	Given User clicked on email text field
+
 	When User fills in '<email>' text field
 	And user navigates away from blurs the '<email>' text field
 	Then The system displayed error that '<email>' text field has "Invalid email format"
