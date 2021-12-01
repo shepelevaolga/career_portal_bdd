@@ -77,7 +77,7 @@ Given user opened "career.quantori.com"
 And user scrolled to the bottom of the page
 When user clicks a link button with a "<logo>" logo in the footer
 Then user should be redirected to "Quantori page" on the "<full website name>" website
-
+ 
 Examples:
 |logo                   |full website name     | 
 |"Planet icon"          |Quantori.com          | 
