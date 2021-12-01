@@ -2,9 +2,9 @@ Feature: 1.1. Search by Filters
 
 Background: 
     Given User is on https://career.quantori.com website
-    And There are 5 available <positions> on the jobs page
-    And There are 5 available <competence> on the jobs page
-    And There are 5 available <technologies> on the jobs page
+    And There are 10 available <positions> on the jobs page
+    And There are 2 available <competence> on the jobs page
+    And There are 2 available <technologies> on the jobs page
     |Position                                              ||competence       ||technologies|
     |Junior JavaScript Engineer                            ||Databases        ||SQL         |
     |Senior/Lead Manual QA Engineer (Life Science projects)||Business Analysis||.NET        |
