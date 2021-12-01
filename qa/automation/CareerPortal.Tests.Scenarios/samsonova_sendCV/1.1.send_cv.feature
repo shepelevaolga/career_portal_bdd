@@ -4,8 +4,8 @@
   Given user opened the form "Send CV"
   When user enters valid data in the field "Name"
   And user enters valid data in the field "Email"
-  And user attaches CV
-  And user marks "I agree to the personal data processing"
+  And user attaches 9Mb CV-file
+  And user marks checkbox with agreement to the personal data processing
   And user clicks the "Send" button
   Then my CV has been send and success message should appear
 
@@ -33,8 +33,8 @@
   Then an error message should appear "Something went wrong Max file size 10 Mb"
 
   
-  Scenario: 1.1_06 don't ticked "I agree to the personal data processing"
+  Scenario: 1.1_06 Checkbox isn't mark
   Given user opened the form "Send CV"
   When user does not mark "I agree to the personal data processing"
-  Then "I agree to the personal data processing" should change color to "red"
+  Then checkbox should change colour to "red"
 
