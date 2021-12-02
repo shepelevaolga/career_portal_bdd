@@ -75,17 +75,17 @@ Scenario Outline: User can see a real time validation of 'Name' field
 	And the field border line becomes red
 
 	Examples: 
-		| words | lenght       | latin     | add     | notification                           |
-		| 1     | less than 70 | Latin     | null    | Invalid name format                    |
-		| 1     | less than 70 | not Latin | null    | Invalid name format                    |
-		| 2     | less than 70 | not Latin | null    | Invalid name format                    |
-		| 2     | 71 or more   | Latin     | null    | The maximum number of characters is 70 |
-		| 2     | 71 or more   | not Latin | null    | The maximum number of characters is 70 |
-		| 1     | 71 or more   | Latin     | null    | The maximum number of characters is 70 |
-		| 1     | 71 or more   | not Latin | null    | The maximum number of characters is 70 |
-		| 2     | less than 70 | Latin     | numbers | Invalid name format                    |
-		| 2     | less than 70 | Latin     | symbols | Invalid name format                    |
-		| 0     | 0            | null      | null    | This field is required                 |
+		| words | lenght       | latin     | add                | notification                           |
+		| 1     | less than 70 | Latin     | null               | Invalid name format                    |
+		| 1     | less than 70 | not Latin | null               | Invalid name format                    |
+		| 2     | less than 70 | not Latin | null               | Invalid name format                    |
+		| 2     | 71 or more   | Latin     | null               | The maximum number of characters is 70 |
+		| 2     | 71 or more   | not Latin | null               | The maximum number of characters is 70 |
+		| 1     | 71 or more   | Latin     | null               | The maximum number of characters is 70 |
+		| 1     | 71 or more   | not Latin | null               | The maximum number of characters is 70 |
+		| 2     | less than 70 | Latin     | numbers            | Invalid name format                    |
+		| 2     | less than 70 | Latin     | special characters | Invalid name format                    |
+		| 0     | 0            | null      | null               | This field is required                 |
 
 Scenario Outline: User can see a real time validation of 'Email' field
 	Given user filled the Send CV form
@@ -94,13 +94,13 @@ Scenario Outline: User can see a real time validation of 'Email' field
 	And the field border line becomes red
 
 	Examples: 
-		| username                              | @    | lvl2                                | .    | lvl1                 | lenght       | notification                           |
-		| a-z,0-9, symbols (except ,<>[]()\)    | null | a-z,0-9,-                           | .    | existing domain      | less than 70 | Invalid email format                   |
-		| a-z,0-9, symbols (except ,<>[]()\)    | @    | a-z,0-9,-                           | null | existing  domain     | less than 70 | Invalid email format                   |
-		| a-z,0-9, symbols (except ,<>[]()\)    | @    | a-z,0-9,-                           | .    | existing  domain     | 71 or more   | The maximum number of characters is 70 |
-		| a-z,0-9, symbols (including ,<>[]()\) | @    | a-z,0-9,-                           | .    | existing  domain     | less than 70 | Invalid email format                   |
-		| a-z,0-9, symbols (except ,<>[]()\)    | @    | a-z,0-9,-                           | .    | non-existent  domain | less than 70 | Invalid email format                   |
-		| a-z,0-9, symbols (except ,<>[]()\)    | @    | a-z,0-9,- (including other symbols) | .    | existing  domain     | less than 70 | Invalid email format                   |
+		| username                                         | @    | lvl2                                              | .    | lvl1                 | lenght       | notification                           |
+		| a-z,0-9, special characters (except ,<>[]()\)    | null | a-z,0-9,-, .                                      | .    | existing domain      | less than 70 | Invalid email format                   |
+		| a-z,0-9, special characters (except ,<>[]()\)    | @    | a-z,0-9,-, .                                      | null | existing  domain     | less than 70 | Invalid email format                   |
+		| a-z,0-9, special characters (except ,<>[]()\)    | @    | a-z,0-9,-, .                                      | .    | existing  domain     | 71 or more   | The maximum number of characters is 70 |
+		| a-z,0-9, special characters (including ,<>[]()\) | @    | a-z,0-9,-, .                                      | .    | existing  domain     | less than 70 | Invalid email format                   |
+		| a-z,0-9, special characters (except ,<>[]()\)    | @    | a-z,0-9,-, .                                      | .    | non-existent  domain | less than 70 | Invalid email format                   |
+		| a-z,0-9, special characters (except ,<>[]()\)    | @    | a-z,0-9,-, . (including other special characters) | .    | existing  domain     | less than 70 | Invalid email format                   |
 
 Scenario: User can see a real time validation of 'Message' field
 	Given user filled the Send CV form
