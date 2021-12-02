@@ -131,7 +131,7 @@ Scenario: 1.1.2_13 User can't attach too big message
 	Then field should be highlighted in red
 	And message "The maximum number of characters is 500" should appear under field "Message"
 
-Scenario: 1.1.2_14 User reloads the page after filling the form
+Scenario Outline: 1.1.2_14 User reloads the page after filling the form
 	Given user inputted "<Name>", "<Email>", "<Checkbox>", "<Message>", attached <CV> in "Attach CV"
 	When user reloads the page 
 	Then form should be empty
