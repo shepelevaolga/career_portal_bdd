@@ -24,9 +24,9 @@ Scenario Outline: 3.1.2 User can filter positions by technologie
   | iOS         | Senior iOS Developer |
 
 Scenario Outline: 3.1.3 User can filter positions by competency and technologie
-	When user selects points in 'Technologies' dropdown list
+  When user selects points in 'Technologies' dropdown list
   And user selects points in 'Competence' dropdown list
-	Then list of positions related both to choosen competencies and technologies should be shown
+  Then list of positions related both to choosen competencies and technologies should be shown
 
 Scenario Outline: 3.1.4 User can disable choosen items and the list refreshes
   Given user has selected items in dropdown lists 
@@ -37,7 +37,7 @@ Scenario: 3.1.5 Open positions list without filter includes all positions
   When user doesn't choose any interested points in filters
   Then all opened positions should be shown
 
-Scenario: 3.1.6 Click on position card opens a detail information page for position
+Scenario Outline: 3.1.6 Click on position card opens a detail information page for position
   Given open position cards are shown 
   When user clicks on position <Card>
   Then <Page> with detailed info about position should be shown
