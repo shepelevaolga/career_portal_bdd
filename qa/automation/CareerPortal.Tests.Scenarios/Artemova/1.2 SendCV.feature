@@ -5,7 +5,7 @@ Background:
   And the 'Send CV' form is available
   And the 'Send CV' form doesn't contain any data
 	
-Example:
+Examples:
   | page                                                                  |
   | https://career.quantori.com/positions/senior-qa-automation-c-engineer |
 
