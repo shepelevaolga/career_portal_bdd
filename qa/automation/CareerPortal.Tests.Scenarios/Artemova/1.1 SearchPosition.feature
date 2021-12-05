@@ -39,10 +39,10 @@ Scenario: 3.1.5 Open positions list without filter includes all positions
 
 Scenario: 3.1.6 Click on position card opens a detail information page for position
   Given open position cards are shown 
-  When user clicks on position card
-  Then page with detailed info about position should be shown
+  When user clicks on position <Card>
+  Then <Page> with detailed info about position should be shown
 
   Examples:
-  | position                       | detailed info page                                                   |
+  | Card                           | Page                                                                 |
   | Business Intelligence Engineer | https://career.quantori.com/positions/business-intelligence-engineer |
   | SharePoint Engineer            | https://career.quantori.com/positions/sharepoint-engineer            |
