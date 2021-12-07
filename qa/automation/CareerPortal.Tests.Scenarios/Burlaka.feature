@@ -12,7 +12,11 @@ additional contact opportunities
 Scenario: 1.2.3_01 Footer should contain links for "Data Privacy" / "Policy Cookies Settings" and Copyright trademark 
 Given user opened "career.quantori.com"  
 When user scrolls to the bottom of "career.quantori.com" page
-Then following "<text-containing element>" with "<text>" text should be displayed in the footer: 
+Then the following elements should be visible in Footer:
+|Element| Type|
+|Data privacy| link|
+|Cookies Settings|Link|
+|Copyright © 2021 Quantori. Custom Software Solutions. All rights reserved.| Text|
 |text-containing element                                        |text                                                           | 
 |link                                                           |Data Privacy Policy                                            | 
 |link                                                           |Cookies Settings                                               | 
