@@ -9,14 +9,14 @@ additional contact opportunities
 # With "text-containing" elements I refer to elements like links and plain text, whereas "logo-containing" elements are different types of
 # clickable buttons (which can be identified by their logos)
 
-Scenario Outline:1.2.3_01 Footer "text-containing" elements should be visible at the bottom of the "career.quantori.com" page
+Scenario: 1.2.3_01 Footer should contain links for "Data Privacy" / "Policy Cookies Settings" and Copyright trademark 
 Given user opened "career.quantori.com"  
 When user scrolls to the bottom of "career.quantori.com" page
 Then following "<text-containing element>" with "<text>" text should be displayed in the footer: 
 |text-containing element                                        |text                                                           | 
 |link                                                           |Data Privacy Policy                                            | 
 |link                                                           |Cookies Settings                                               | 
-|copyright text                                                 |© 2021 Quantori. Custom Software Solutions. All rights reserved|
+|copyright text                                                 |Â© 2021 Quantori. Custom Software Solutions. All rights reserved|
 
 Scenario Outline:1.2.3_02 Footer "logo-containing" elements should be visible at the bottom of the "career.quantori.com" page
 Given user opened "career.quantori.com"  
