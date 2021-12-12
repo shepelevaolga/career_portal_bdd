@@ -87,4 +87,5 @@ And text "Become a part of Quantori team" should be displayed
 Scenario:1.2.3_9 Footer mailto button opens a new email window for a user
 Given user scrolled to the bottom of the "qa.career.quantori.com" page
 When user clicks a mailto button with an "Envelope" logo 
-Then a default mail client should be opened 
+Then a default mail client should be opened
+And user's default email client should be added
